@@ -104,7 +104,7 @@ func (b *Builder) Run(ui packer.Ui, hook packer.Hook, cache packer.Cache) (packe
 			&common.StepProvision{},
 
 			&lin.StepGeneralizeOS{
-				Command: "sudo /usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync",
+				Command: "sudo /usr/bin/python3 /usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync",
 			},
 			&StepStopVm{
 				TmpVmName:      b.config.tmpVmName,
